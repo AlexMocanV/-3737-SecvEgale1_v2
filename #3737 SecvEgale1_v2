@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int aparitie[1000001];
+
+int main()
+{
+    int n,i,lung=0,st=0,dr=0,x;
+    cin>>n;
+    for(int i=1;i<=n;i++)
+    {
+        cin>>x;
+        if(!aparitie[x])
+        {
+            aparitie[x]=i;
+        }
+        else if(aparitie[x]!=i)
+        {
+            if(lung<=(1+i-aparitie[x]))
+            {
+                lung=(1+i-aparitie[x]);
+                st=aparitie[x];
+                dr=i;
+            }
+        }
+    }
+    cout<<st<<" "<<dr;
+    return 0;
+}
